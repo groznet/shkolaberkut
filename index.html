@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Беркут Школа Охраны — обучение охранников в Грозном</title>
+    <meta name="description" content="ООО «БЕРКУТ» Школа охраны — дополнительное профессиональное образование в Грозном. Подготовка охранников, водителей, подбор персонала. Лицензированное обучение с 2014 года." />
+    <meta name="keywords" content="школа охраны Грозный, обучение охранников, курсы охраны Чечня, подготовка охранников, профессиональное обучение, ЧОП, удостоверение охранника" />
+    <link rel="canonical" href="https://berkut-school.ru/" />
+    <meta property="og:title" content="Беркут Школа Охраны — обучение охранников в Грозном" />
+    <meta property="og:description" content="Профессиональное обучение и подготовка сотрудников охраны в Грозном. Лицензированная школа с 2014 года." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://berkut-school.ru/" />
+    <meta name="theme-color" content="#0F2D5C" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- TailwindCSS -->
+    <script src="/assets/js/tailwind.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+
+    <style>
+        /* ============================================================
+               CSS Variables (design tokens)
+               ============================================================ */
+        :root {
+            --color-primary: #0F2D5C;
+            --color-secondary: #334155;
+            --color-accent: #C89B3C;
+            --color-bg: #F8FAFC;
+            --color-text: #0F172A;
+            --color-muted: #94A3B8;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* ============================================================
+               Base styles
+               ============================================================ */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        /* ============================================================
+               Custom utilities (via Tailwind plugin approach)
+               ============================================================ */
+        .bg-primary {
+            background-color: var(--color-primary);
+        }
+        .bg-secondary {
+            background-color: var(--color-secondary);
+        }
+        .bg-accent {
+            background-color: var(--color-accent);
+        }
+        .bg-background {
+            background-color: var(--color-bg);
+        }
+        .text-primary {
+            color: var(--color-primary);
+        }
+        .text-secondary {
+            color: var(--color-secondary);
+        }
+        .text-accent {
+            color: var(--color-accent);
+        }
+        .text-muted {
+            color: var(--color-muted);
+        }
+        .border-accent {
+            border-color: var(--color-accent);
+        }
+        .hover\:bg-accent-dark:hover {
+            background-color: #b0882e;
+        }
+        .hover\:text-accent:hover {
+            color: var(--color-accent);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--color-accent);
+            color: #fff;
+            font-weight: 600;
+            padding: 0.625rem 1.75rem;
+            border-radius: 9999px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 14px rgba(200, 155, 60, 0.35);
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(200, 155, 60, 0.45);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: transparent;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.625rem 1.75rem;
+            border-radius: 9999px;
+            border: 2px solid #fff;
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-outline:hover {
+            transform: scale(1.03);
+            background-color: #fff;
+            color: var(--color-primary);
+        }
+        .btn-outline-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: transparent;
+            color: var(--color-primary);
+            font-weight: 600;
+            padding: 0.625rem 1.75rem;
+            border-radius: 9999px;
+            border: 2px solid var(--color-primary);
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-outline-dark:hover {
+            transform: scale(1.03);
+            background-color: var(--color-primary);
+            color: #fff;
+        }
+
+        /* Cards */
+        .card-shadow {
+            box-shadow: 0 4px 24px rgba(15, 45, 92, 0.08);
+            border-radius: 1rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .card-shadow:hover {
+            box-shadow: 0 12px 40px rgba(15, 45, 92, 0.14);
+            transform: translateY(-4px);
+        }
+
+        /* Inputs (underlined) */
+        .input-underlined {
+            width: 100%;
+            padding: 0.5rem 0.25rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #d1d5db;
+            outline: none;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.25s ease;
+        }
+        .input-underlined:focus {
+            border-bottom-color: var(--color-accent);
+        }
+        .input-underlined::placeholder {
+            color: var(--color-muted);
+        }
+
+        /* Hero gradient overlay */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15, 45, 92, 0.92) 0%, rgba(15, 45, 92, 0.65) 100%);
+        }
+
+        /* Gold accent line */
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-accent);
+            border-radius: 4px;
+        }
+
+        /* FAQ accordion */
+        .faq-chevron {
+            transition: transform 0.3s ease;
+        }
+        .faq-chevron.open {
+            transform: rotate(180deg);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    HEADER (component)
+    ============================================================ -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg" x-data="{ mobileOpen: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+
+                <!-- Logo -->
+                <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="Беркут Школа Охраны — главная">
+                    <svg class="w-9 h-9 md:w-10 md:h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M20 0L24.5 12.5L37.5 12.5L27.5 20L31 32.5L20 25L9 32.5L12.5 20L2.5 12.5L15.5 12.5L20 0Z" fill="#C89B3C" />
+                        <path d="M20 6L22.5 14L30 14L24 18.5L26.5 26L20 21.5L13.5 26L16 18.5L10 14L17.5 14L20 6Z" fill="#F8FAFC" opacity="0.9" />
+                    </svg>
+                    <span class="font-heading text-lg md:text-xl font-extrabold tracking-tight leading-none">
+                        БЕРКУТ<span class="text-accent">.</span>ШКОЛА
+                    </span>
+                </a>
+
+                <!-- Desktop nav -->
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium" aria-label="Основная навигация">
+                    <a href="/services/" class="hover:text-accent transition-colors">Услуги</a>
+                    <a href="/about/" class="hover:text-accent transition-colors">О школе</a>
+                    <a href="/blog/" class="hover:text-accent transition-colors">Новости</a>
+                    <a href="/faq/" class="hover:text-accent transition-colors">Вопросы</a>
+                    <a href="/contact/" class="hover:text-accent transition-colors">Контакты</a>
+                </nav>
+
+                <!-- Desktop contact + CTA -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="tel:+70000000000" class="text-sm font-medium hover:text-accent transition-colors flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                        +7 (000) 000-00-00
+                    </a>
+                    <a href="/contact/" class="btn-primary text-sm py-2 px-5">Записаться</a>
+                </div>
+
+                <!-- Mobile toggle -->
+                <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 -mr-2 rounded-lg hover:bg-white/10 transition-colors" aria-expanded="false" :aria-expanded="mobileOpen.toString()" aria-controls="mobile-menu" aria-label="Открыть меню">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" x-show="!mobileOpen" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" x-show="mobileOpen" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" x-show="mobileOpen" x-cloak class="lg:hidden pb-5 border-t border-white/10" x-transition:enter.duration.300ms.opacity>
+                <nav class="flex flex-col gap-3 pt-4 text-sm font-medium" aria-label="Мобильная навигация">
+                    <a href="/services/" class="hover:text-accent transition-colors py-1">Услуги</a>
+                    <a href="/about/" class="hover:text-accent transition-colors py-1">О школе</a>
+                    <a href="/blog/" class="hover:text-accent transition-colors py-1">Новости</a>
+                    <a href="/faq/" class="hover:text-accent transition-colors py-1">Вопросы</a>
+                    <a href="/contact/" class="hover:text-accent transition-colors py-1">Контакты</a>
+                    <hr class="border-white/10" />
+                    <a href="tel:+70000000000" class="flex items-center gap-2 py-1 text-accent font-semibold">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                        +7 (000) 000-00-00
+                    </a>
+                    <a href="/contact/" class="btn-primary text-center justify-center py-2.5 mt-1">Записаться на курс</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============================================================
+        HERO
+        ============================================================ -->
+        <section class="relative bg-primary text-white overflow-hidden" aria-labelledby="hero-title">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 opacity-10" aria-hidden="true">
+                <svg class="w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <pattern id="hero-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                            <path d="M40 0L80 40L40 80L0 40L40 0Z" fill="none" stroke="#C89B3C" stroke-width="1" />
+                            <circle cx="40" cy="40" r="4" fill="#C89B3C" opacity="0.3" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#hero-pattern)" />
+                </svg>
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                    <!-- Hero text -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="inline-block bg-accent/20 text-accent text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full border border-accent/30">Обучение с 2014 года</span>
+                        </div>
+                        <h1 id="hero-title" class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                            Подготовка <br />
+                            <span class="text-accent">профессиональных</span><br />
+                            охранников
+                        </h1>
+                        <p class="mt-5 text-base sm:text-lg text-white/80 max-w-lg leading-relaxed">
+                            ООО «БЕРКУТ» Школа охраны — лицензированное образовательное учреждение в Грозном. Готовим специалистов для охранных структур, ЧОП и государственных учреждений.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="/contact/" class="btn-primary text-base">
+                                Записаться на обучение
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                            </a>
+                            <a href="/services/" class="btn-outline text-base">
+                                Все программы
+                            </a>
+                        </div>
+                        <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-white/70">
+                            <span class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                Лицензия №12345
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                                1200+ выпускников
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Hero visual / stats card -->
+                    <div class="hidden lg:block">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/5 rounded-xl p-5 text-center border border-white/10">
+                                    <p class="text-3xl font-extrabold text-accent">2014</p>
+                                    <p class="text-sm text-white/70 mt-1">год основания</p>
+                                </div>
+                                <div class="bg-white/5 rounded-xl p-5 text-center border border-white/10">
+                                    <p class="text-3xl font-extrabold text-accent">15+</p>
+                                    <p class="text-sm text-white/70 mt-1">программ обучения</p>
+                                </div>
+                                <div class="bg-white/5 rounded-xl p-5 text-center border border-white/10">
+                                    <p class="text-3xl font-extrabold text-accent">100%</p>
+                                    <p class="text-sm text-white/70 mt-1">трудоустройство</p>
+                                </div>
+                                <div class="bg-white/5 rounded-xl p-5 text-center border border-white/10">
+                                    <p class="text-3xl font-extrabold text-accent">4.9</p>
+                                    <p class="text-sm text-white/70 mt-1">рейтинг</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-center text-sm text-white/60 border-t border-white/10 pt-4">
+                                <span class="flex items-center justify-center gap-2">
+                                    <span class="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                    Аккредитованное обучение
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        STATS BANNER (mobile-friendly)
+        ============================================================ -->
+        <section class="bg-white border-b border-gray-200/60" aria-label="Достижения школы">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-primary">2014</p>
+                        <p class="text-xs md:text-sm text-muted">год основания</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-primary">15+</p>
+                        <p class="text-xs md:text-sm text-muted">программ</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-primary">1200+</p>
+                        <p class="text-xs md:text-sm text-muted">выпускников</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl md:text-3xl font-extrabold text-primary">4.9</p>
+                        <p class="text-xs md:text-sm text-muted">рейтинг</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        SERVICES / PROGRAMS
+        ============================================================ -->
+        <section class="py-16 md:py-24 bg-background" aria-labelledby="programs-title">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Section header -->
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wider">Образовательные программы</span>
+                    <h2 id="programs-title" class="text-3xl md:text-4xl font-extrabold text-primary mt-2">Направления подготовки</h2>
+                    <div class="accent-line mx-auto mt-4"></div>
+                    <p class="mt-5 text-muted text-base md:text-lg leading-relaxed">
+                        Лицензированные программы дополнительного профессионального образования для охранников, водителей и специалистов безопасности.
+                    </p>
+                </div>
+
+                <!-- Program cards -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                    <!-- Card 1 -->
+                    <div class="card-shadow bg-white p-6 md:p-8">
+                        <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-5">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary">Подготовка охранников</h3>
+                        <p class="text-muted text-sm mt-2 leading-relaxed">Полный курс профессиональной подготовки для частных охранников 4–6 разрядов. Включает правовую, физическую и психологическую подготовку.</p>
+                        <a href="/service/okhrana/" class="inline-flex items-center gap-2 text-accent font-semibold text-sm mt-4 hover:underline">
+                            Подробнее
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                        </a>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card-shadow bg-white p-6 md:p-8">
+                        <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-5">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 003 0m-3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 003 0m-3 0h2.625a1.125 1.125 0 001.125-1.125V8.25m0 0H4.5m13.5 0v6.75m0-6.75h-9m9 0H6" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary">Подготовка водителей</h3>
+                        <p class="text-muted text-sm mt-2 leading-relaxed">Профессиональное обучение водителей всех категорий. Подготовка к сдаче экзаменов и получению водительских удостоверений.</p>
+                        <a href="/service/voditeli/" class="inline-flex items-center gap-2 text-accent font-semibold text-sm mt-4 hover:underline">
+                            Подробнее
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                        </a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-shadow bg-white p-6 md:p-8">
+                        <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-5">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary">Подбор персонала</h3>
+                        <p class="text-muted text-sm mt-2 leading-relaxed">Услуги по подбору квалифицированных охранников и сотрудников служб безопасности для организаций и государственных учреждений.</p>
+                        <a href="/service/personnel/" class="inline-flex items-center gap-2 text-accent font-semibold text-sm mt-4 hover:underline">
+                            Подробнее
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="/services/" class="btn-outline-dark text-base">
+                        Все программы обучения
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ABOUT (short)
+        ============================================================ -->
+        <section class="py-16 md:py-24 bg-white" aria-labelledby="about-title">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                    <!-- Left: text -->
+                    <div>
+                        <span class="text-accent text-sm font-semibold uppercase tracking-wider">О школе</span>
+                        <h2 id="about-title" class="text-3xl md:text-4xl font-extrabold text-primary mt-2">Беркут — <span class="text-accent">качество</span> и надёжность</h2>
+                        <div class="accent-line mt-4"></div>
+                        <p class="mt-5 text-muted leading-relaxed text-base md:text-lg">
+                            ООО «БЕРКУТ» Школа охраны — образовательная организация в Грозном, специализирующаяся на <strong>дополнительном профессиональном образовании</strong> в сфере охранной деятельности. Мы работаем с <strong>2014 года</strong> и подготовили более <strong>1200 специалистов</strong> для охранных структур и смежных направлений.
+                        </p>
+                        <p class="mt-4 text-muted leading-relaxed">
+                            Наша миссия — подготовка квалифицированных кадров, способных обеспечить безопасность на высоком профессиональном уровне. Мы гордимся тем, что наши выпускники востребованы и работают в ведущих ЧОП и государственных учреждениях Чеченской Республики.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-6">
+                            <div>
+                                <span class="text-accent font-extrabold text-xl">100%</span>
+                                <span class="block text-xs text-muted">трудоустройство</span>
+                            </div>
+                            <div>
+                                <span class="text-accent font-extrabold text-xl">15+</span>
+                                <span class="block text-xs text-muted">программ</span>
+                            </div>
+                            <div>
+                                <span class="text-accent font-extrabold text-xl">4.9</span>
+                                <span class="block text-xs text-muted">рейтинг</span>
+                            </div>
+                        </div>
+                        <a href="/about/" class="inline-flex items-center gap-2 text-primary font-semibold text-sm mt-6 hover:text-accent transition-colors">
+                            Подробнее о школе
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                        </a>
+                    </div>
+
+                    <!-- Right: visual -->
+                    <div class="relative">
+                        <div class="bg-primary/5 rounded-3xl p-8 md:p-10 border border-primary/10">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-3">
+                                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                                    </div>
+                                    <p class="text-sm font-semibold text-primary">Квалифицированные преподаватели</p>
+                                    <p class="text-xs text-muted mt-1">Опытные инструкторы и эксперты</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-3">
+                                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    </div>
+                                    <p class="text-sm font-semibold text-primary">Лицензированные программы</p>
+                                    <p class="text-xs text-muted mt-1">Соответствие госстандартам</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-3">
+                                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    </div>
+                                    <p class="text-sm font-semibold text-primary">Гибкий график</p>
+                                    <p class="text-xs text-muted mt-1">Утренние и вечерние группы</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                                    <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-3">
+                                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg>
+                                    </div>
+                                    <p class="text-sm font-semibold text-primary">Доступные цены</p>
+                                    <p class="text-xs text-muted mt-1">Рассрочка и скидки</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        WHY CHOOSE US
+        ============================================================ -->
+        <section class="py-16 md:py-24 bg-background" aria-labelledby="why-title">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wider">Преимущества</span>
+                    <h2 id="why-title" class="text-3xl md:text-4xl font-extrabold text-primary mt-2">Почему выбирают нас</h2>
+                    <div class="accent-line mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-primary text-lg">Лицензированное обучение</h3>
+                        <p class="text-sm text-muted mt-1 leading-relaxed">Официальная лицензия на образовательную деятельность. Выдаём удостоверения установленного образца.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-primary text-lg">Опытные преподаватели</h3>
+                        <p class="text-sm text-muted mt-1 leading-relaxed">Занятия ведут действующие специалисты с многолетним опытом в сфере безопасности.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-primary text-lg">Гибкий график</h3>
+                        <p class="text-sm text-muted mt-1 leading-relaxed">Утренние, дневные и вечерние группы. Обучение без отрыва от работы.</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-primary text-lg">Помощь в трудоустройстве</h3>
+                        <p class="text-sm text-muted mt-1 leading-relaxed">Сотрудничаем с ЧОП и государственными структурами. Рекомендуем лучших выпускников.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        TESTIMONIALS
+        ============================================================ -->
+        <section class="py-16 md:py-24 bg-white" aria-labelledby="testimonials-title">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wider">Отзывы</span>
+                    <h2 id="testimonials-title" class="text-3xl md:text-4xl font-extrabold text-primary mt-2">Что говорят выпускники</h2>
+                    <div class="accent-line mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <div class="bg-background rounded-2xl p-6 md:p-8 border border-gray-100">
+                        <div class="flex items-center gap-1 text-accent mb-3">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed">«Прошёл обучение по программе подготовки охранников 6 разряда. Очень доволен качеством преподавания и практическими занятиями. Преподаватели — настоящие профессионалы. После окончания помогли с трудоустройством. Рекомендую!»</p>
+                        <div class="mt-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">АК</div>
+                            <div>
+                                <p class="text-sm font-semibold text-primary">Ахмед К.</p>
+                                <p class="text-xs text-muted">выпускник 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-background rounded-2xl p-6 md:p-8 border border-gray-100">
+                        <div class="flex items-center gap-1 text-accent mb-3">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed">«Отличная школа! Прошёл курс подготовки водителей и получил права категории «C». Преподаватели объясняют доступно, много практики. Отдельное спасибо за индивидуальный подход. Обязательно приду на повышение квалификации.»</p>
+                        <div class="mt-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">МХ</div>
+                            <div>
+                                <p class="text-sm font-semibold text-primary">Магомед Х.</p>
+                                <p class="text-xs text-muted">выпускник 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-background rounded-2xl p-6 md:p-8 border border-gray-100">
+                        <div class="flex items-center gap-1 text-accent mb-3">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed">«Обратилась в школу для повышения квалификации сотрудников нашей ЧОП. Организовали групповое обучение, учли все наши пожелания. Персонал стал более профессиональным и уверенным. Спасибо команде Беркут!»</p>
+                        <div class="mt-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">ЗМ</div>
+                            <div>
+                                <p class="text-sm font-semibold text-primary">Зарема М.</p>
+                                <p class="text-xs text-muted">руководитель ЧОП</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        FAQ
+        ============================================================ -->
+        <section class="py-16 md:py-24 bg-background" aria-labelledby="faq-title">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wider">Часто задаваемые вопросы</span>
+                    <h2 id="faq-title" class="text-3xl md:text-4xl font-extrabold text-primary mt-2">Ответы на вопросы</h2>
+                    <div class="accent-line mx-auto mt-4"></div>
+                </div>
+
+                <div class="space-y-3" x-data="{ open: null }">
+
+                    <!-- FAQ 1 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <button @click="open = open === 1 ? null : 1" class="w-full flex items-center justify-between p-5 md:p-6 text-left font-medium text-primary hover:bg-primary/5 transition-colors" aria-expanded="false" :aria-expanded="open === 1 ? 'true' : 'false'">
+                            <span>Какие документы нужны для поступления?</span>
+                            <svg class="w-5 h-5 text-accent shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open === 1 }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                        </button>
+                        <div x-show="open === 1" x-collapse>
+                            <div class="px-5 md:px-6 pb-5 md:pb-6 text-sm text-secondary leading-relaxed">
+                                Для поступления на обучение необходимы: паспорт гражданина РФ, медицинская справка (форма 046-1), 2 фотографии 3×4 см, а также заявление установленного образца. Для отдельных программ могут потребоваться дополнительные документы — уточняйте у нашего консультанта.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <button @click="open = open === 2 ? null : 2" class="w-full flex items-center justify-between p-5 md:p-6 text-left font-medium text-primary hover:bg-primary/5 transition-colors" aria-expanded="false" :aria-expanded="open === 2 ? 'true' : 'false'">
+                            <span>Сколько длится обучение?</span>
+                            <svg class="w-5 h-5 text-accent shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open === 2 }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                        </button>
+                        <div x-show="open === 2" x-collapse>
+                            <div class="px-5 md:px-6 pb-5 md:pb-6 text-sm text-secondary leading-relaxed">
+                                Длительность обучения зависит от выбранной программы. Базовый курс подготовки охранников занимает от 2 до 4 месяцев. Программы повышения квалификации — от 1 месяца. Точные сроки уточняются при записи.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <button @click="open = open === 3 ? null : 3" class="w-full flex items-center justify-between p-5 md:p-6 text-left font-medium text-primary hover:bg-primary/5 transition-colors" aria-expanded="false" :aria-expanded="open === 3 ? 'true' : 'false'">
+                            <span>Выдаётся ли удостоверение охранника?</span>
+                            <svg class="w-5 h-5 text-accent shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open === 3 }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                        </button>
+                        <div x-show="open === 3" x-collapse>
+                            <div class="px-5 md:px-6 pb-5 md:pb-6 text-sm text-secondary leading-relaxed">
+                                Да, после успешного окончания обучения и сдачи экзаменов вы получаете удостоверение частного охранника установленного образца, которое даёт право на работу в сфере охранной деятельности по соответствующему разряду.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <button @click="open = open === 4 ? null : 4" class="w-full flex items-center justify-between p-5 md:p-6 text-left font-medium text-primary hover:bg-primary/5 transition-colors" aria-expanded="false" :aria-expanded="open === 4 ? 'true' : 'false'">
+                            <span>Есть ли возможность дистанционного обучения?</span>
+                            <svg class="w-5 h-5 text-accent shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open === 4 }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                        </button>
+                        <div x-show="open === 4" x-collapse>
+                            <div class="px-5 md:px-6 pb-5 md:pb-6 text-sm text-secondary leading-relaxed">
+                                На данный момент обучение проводится в очном формате с практическими занятиями на базе школы в Грозном. Это позволяет обеспечить высокое качество подготовки и отработку навыков под руководством опытных инструкторов.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <button @click="open = open === 5 ? null : 5" class="w-full flex items-center justify-between p-5 md:p-6 text-left font-medium text-primary hover:bg-primary/5 transition-colors" aria-expanded="false" :aria-expanded="open === 5 ? 'true' : 'false'">
+                            <span>Помогаете ли с трудоустройством?</span>
+                            <svg class="w-5 h-5 text-accent shrink-0 transition-transform duration-300" :class="{ 'rotate-180': open === 5 }" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                        </button>
+                        <div x-show="open === 5" x-collapse>
+                            <div class="px-5 md:px-6 pb-5 md:pb-6 text-sm text-secondary leading-relaxed">
+                                Да, мы активно сотрудничаем с частными охранными предприятиями и государственными структурами. Наши выпускники получают помощь в трудоустройстве, а лучшие из них — рекомендации для работы в ведущих ЧОП Чеченской Республики.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-10">
+                    <a href="/faq/" class="text-accent font-semibold hover:underline inline-flex items-center gap-2">
+                        Все вопросы и ответы
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        CTA / CONTACT
+        ============================================================ -->
+        <section class="py-16 md:py-24 bg-primary relative overflow-hidden" aria-labelledby="cta-title">
+            <!-- Decorative elements -->
+            <div class="absolute inset-0 opacity-5" aria-hidden="true">
+                <svg class="w-full h-full" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs><pattern id="cta-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30 0L60 30L30 60L0 30L30 0Z" fill="none" stroke="#C89B3C" stroke-width="1"/></pattern></defs>
+                    <rect width="100%" height="100%" fill="url(#cta-pattern)" />
+                </svg>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-accent text-sm font-semibold uppercase tracking-wider">Начните карьеру сегодня</span>
+                <h2 id="cta-title" class="text-3xl md:text-4xl font-extrabold text-white mt-2">Готовы стать профессионалом?</h2>
+                <div class="accent-line mx-auto mt-4"></div>
+                <p class="mt-5 text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                    Оставьте заявку на обучение, и наш консультант свяжется с вами в ближайшее время. Расскажет о программах, стоимости и условиях поступления.
+                </p>
+
+                <form class="mt-8 max-w-lg mx-auto" x-data="{ name: '', phone: '', message: '' }" @submit.prevent="alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="text" x-model="name" placeholder="Ваше имя" required class="input-underlined bg-white/10 text-white placeholder-white/50 rounded-lg px-4 py-3 border border-white/20 focus:border-accent flex-1" />
+                        <input type="tel" x-model="phone" placeholder="Номер телефона" required class="input-underlined bg-white/10 text-white placeholder-white/50 rounded-lg px-4 py-3 border border-white/20 focus:border-accent flex-1" />
+                        <button type="submit" class="btn-primary shrink-0 justify-center py-3 px-6 text-base">
+                            Отправить
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
+                        </button>
+                    </div>
+                    <p class="text-xs text-white/50 mt-3">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/" class="text-accent hover:underline">политикой конфиденциальности</a></p>
+                </form>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                        +7 (000) 000-00-00
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                        info@berkut-school.ru
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                        Грозный, ул. Жуковского, 16
+                    </span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER (component)
+    ============================================================ -->
+    <footer class="bg-primary text-white border-t border-white/10" aria-label="Подвал сайта">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+
+                <!-- Brand -->
+                <div class="col-span-2 lg:col-span-1">
+                    <a href="/" class="flex items-center gap-2.5" aria-label="Беркут Школа Охраны — главная">
+                        <svg class="w-9 h-9" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M20 0L24.5 12.5L37.5 12.5L27.5 20L31 32.5L20 25L9 32.5L12.5 20L2.5 12.5L15.5 12.5L20 0Z" fill="#C89B3C" />
+                            <path d="M20 6L22.5 14L30 14L24 18.5L26.5 26L20 21.5L13.5 26L16 18.5L10 14L17.5 14L20 6Z" fill="#F8FAFC" opacity="0.9" />
+                        </svg>
+                        <span class="font-heading text-xl font-extrabold tracking-tight leading-none">
+                            БЕРКУТ<span class="text-accent">.</span>ШКОЛА
+                        </span>
+                    </a>
+                    <p class="text-sm text-white/60 mt-3 max-w-xs leading-relaxed">
+                        Дополнительное профессиональное образование в сфере охранной деятельности. Подготовка специалистов с 2014 года.
+                    </p>
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" aria-label="Telegram" class="text-white/60 hover:text-accent transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="text-white/60 hover:text-accent transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="text-white/60 hover:text-accent transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nav -->
+                <div>
+                    <h3 class="font-heading font-semibold text-base text-white mb-4">Навигация</h3>
+                    <ul class="space-y-2.5 text-sm text-white/70">
+                        <li><a href="/" class="hover:text-accent transition-colors">Главная</a></li>
+                        <li><a href="/services/" class="hover:text-accent transition-colors">Услуги</a></li>
+                        <li><a href="/about/" class="hover:text-accent transition-colors">О школе</a></li>
+                        <li><a href="/blog/" class="hover:text-accent transition-colors">Новости</a></li>
+                        <li><a href="/faq/" class="hover:text-accent transition-colors">FAQ</a></li>
+                        <li><a href="/contact/" class="hover:text-accent transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div>
+                    <h3 class="font-heading font-semibold text-base text-white mb-4">Программы</h3>
+                    <ul class="space-y-2.5 text-sm text-white/70">
+                        <li><a href="/service/okhrana/" class="hover:text-accent transition-colors">Подготовка охранников</a></li>
+                        <li><a href="/service/voditeli/" class="hover:text-accent transition-colors">Подготовка водителей</a></li>
+                        <li><a href="/service/personnel/" class="hover:text-accent transition-colors">Подбор персонала</a></li>
+                        <li><a href="/service/povyshenie/" class="hover:text-accent transition-colors">Повышение квалификации</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacts -->
+                <div>
+                    <h3 class="font-heading font-semibold text-base text-white mb-4">Контакты</h3>
+                    <ul class="space-y-2.5 text-sm text-white/70">
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                            <span>+7 (000) 000-00-00</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                            <a href="mailto:info@berkut-school.ru" class="hover:text-accent transition-colors">info@berkut-school.ru</a>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                            <span>Грозный, ул. Жуковского, 16</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>Пн–Пт: 09:00 – 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+                <p>&copy; 2026 ООО «БЕРКУТ» Школа охраны. Все права защищены.</p>
+                <div class="flex gap-6">
+                    <a href="/privacy/" class="hover:text-white transition-colors">Политика конфиденциальности</a>
+                    <a href="/terms/" class="hover:text-white transition-colors">Условия использования</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    Alpine.js: hide x-cloak elements
+    ============================================================ -->
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+</body>
+</html>

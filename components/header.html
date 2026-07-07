@@ -1,0 +1,58 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label="Беркут Школа Охраны — главная">
+            <svg class="w-9 h-9 md:w-10 md:h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M20 0L24.5 12.5L37.5 12.5L27.5 20L31 32.5L20 25L9 32.5L12.5 20L2.5 12.5L15.5 12.5L20 0Z" fill="#C89B3C" />
+                <path d="M20 6L22.5 14L30 14L24 18.5L26.5 26L20 21.5L13.5 26L16 18.5L10 14L17.5 14L20 6Z" fill="#F8FAFC" opacity="0.9" />
+            </svg>
+            <span class="font-heading text-lg md:text-xl font-extrabold tracking-tight leading-none">
+                БЕРКУТ<span class="text-accent">.</span>ШКОЛА
+            </span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium" aria-label="Основная навигация">
+            <a href="/services/" class="hover:text-accent transition-colors">Услуги</a>
+            <a href="/about/" class="hover:text-accent transition-colors">О школе</a>
+            <a href="/blog/" class="hover:text-accent transition-colors">Новости</a>
+            <a href="/faq/" class="hover:text-accent transition-colors">Вопросы</a>
+            <a href="/contact/" class="hover:text-accent transition-colors">Контакты</a>
+        </nav>
+
+        <!-- Desktop contact + CTA -->
+        <div class="hidden lg:flex items-center gap-4">
+            <a href="tel:+70000000000" class="text-sm font-medium hover:text-accent transition-colors flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                +7 (000) 000-00-00
+            </a>
+            <a href="/contact/" class="btn-primary text-sm py-2 px-5">Записаться</a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 -mr-2 rounded-lg hover:bg-white/10 transition-colors" aria-expanded="false" :aria-expanded="mobileOpen.toString()" aria-controls="mobile-menu" aria-label="Открыть меню">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" x-show="!mobileOpen" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" x-show="mobileOpen" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" x-show="mobileOpen" x-cloak class="lg:hidden pb-5 border-t border-white/10" x-transition:enter.duration.300ms.opacity>
+        <nav class="flex flex-col gap-3 pt-4 text-sm font-medium" aria-label="Мобильная навигация">
+            <a href="/services/" class="hover:text-accent transition-colors py-1">Услуги</a>
+            <a href="/about/" class="hover:text-accent transition-colors py-1">О школе</a>
+            <a href="/blog/" class="hover:text-accent transition-colors py-1">Новости</a>
+            <a href="/faq/" class="hover:text-accent transition-colors py-1">Вопросы</a>
+            <a href="/contact/" class="hover:text-accent transition-colors py-1">Контакты</a>
+            <hr class="border-white/10" />
+            <a href="tel:+70000000000" class="flex items-center gap-2 py-1 text-accent font-semibold">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                +7 (000) 000-00-00
+            </a>
+            <a href="/contact/" class="btn-primary text-center justify-center py-2.5 mt-1">Записаться на курс</a>
+        </nav>
+    </div>
+</div>
