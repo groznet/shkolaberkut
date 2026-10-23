@@ -87,6 +87,24 @@
             background-color: var(--color-primary);
             color: #fff;
         }
+        .btn-outline-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: transparent;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.625rem 1.75rem;
+            border-radius: 9999px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-outline-light:hover {
+            transform: scale(1.03);
+            background-color: #fff;
+            color: var(--color-primary);
+        }
 
         .accent-line {
             width: 60px;
@@ -199,7 +217,7 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /></svg>
                         На главную
                     </a>
-                    <a href="/services/" class="btn-outline-light text-base border border-white/40 hover:bg-white hover:text-primary">
+                    <a href="/services/" class="btn-outline-light text-base">
                         Все программы
                     </a>
                 </div>

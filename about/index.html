@@ -135,6 +135,24 @@
             background-color: var(--color-primary);
             color: #fff;
         }
+        .btn-outline-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: transparent;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.625rem 1.75rem;
+            border-radius: 9999px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-outline-light:hover {
+            transform: scale(1.03);
+            background-color: #fff;
+            color: var(--color-primary);
+        }
 
         /* Cards */
         .card-shadow {
@@ -273,7 +291,7 @@
                             Наша миссия
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
                         </a>
-                        <a href="/contact/" class="btn-outline-light text-base border border-white/40 hover:bg-white hover:text-primary">
+                        <a href="/contact/" class="btn-outline-light text-base">
                             Связаться
                         </a>
                     </div>
