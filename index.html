@@ -741,19 +741,19 @@
                 <h2 id="cta-title" class="text-3xl md:text-4xl font-extrabold text-white mt-2">Готовы стать профессионалом?</h2>
                 <div class="accent-line mx-auto mt-4"></div>
                 <p class="mt-5 text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                    Оставьте заявку на обучение, и наш консультант свяжется с вами в ближайшее время. Расскажет о программах, стоимости и условиях поступления.
+                    Позвоните или напишите нам — наш консультант расскажет о программах и условиях поступления.
                 </p>
 
-                <form class="mt-8 max-w-lg mx-auto" x-data="{ name: '', phone: '', message: '' }" @submit.prevent="alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')">
+                <form class="mt-8 max-w-lg mx-auto" @submit.prevent>
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <input type="text" x-model="name" placeholder="Ваше имя" required class="input-underlined bg-white/10 text-white placeholder-white/50 rounded-lg px-4 py-3 border border-white/20 focus:border-accent flex-1" />
-                        <input type="tel" x-model="phone" placeholder="Номер телефона" required class="input-underlined bg-white/10 text-white placeholder-white/50 rounded-lg px-4 py-3 border border-white/20 focus:border-accent flex-1" />
-                        <button type="submit" class="btn-primary shrink-0 justify-center py-3 px-6 text-base">
+                        <input type="text" placeholder="Ваше имя" disabled class="opacity-50 cursor-not-allowed input-underlined bg-white/10 text-white placeholder-white/50 rounded-lg px-4 py-3 border border-white/20 focus:border-accent flex-1" />
+                        <input type="tel" placeholder="Номер телефона" disabled class="opacity-50 cursor-not-allowed input-underlined bg-white/10 text-white placeholder-white/50 rounded-lg px-4 py-3 border border-white/20 focus:border-accent flex-1" />
+                        <button type="button" disabled class="btn-primary shrink-0 justify-center py-3 px-6 text-base opacity-50 cursor-not-allowed">
                             Отправить
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
                         </button>
                     </div>
-                    <p class="text-xs text-white/50 mt-3">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/" class="text-accent hover:underline">политикой конфиденциальности</a></p>
+                    <p class="text-xs text-white/50 mt-3">В связи с требованиями Федерального закона № 152-ФЗ «О персональных данных» форма временно отключена и не осуществляет сбор, передачу или обработку персональных данных.</p>
                 </form>
 
                 <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/70">
